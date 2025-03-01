@@ -1,19 +1,5 @@
 import random
 
-def average_lands(total_lands, black_count, colorless_count, simulations=10000):
-    total_black = 0
-    total_colorless = 0
-    
-    for _ in range(simulations):
-        black, colorless = simulate_game(total_lands, black_count, colorless_count)
-        total_black += black
-        total_colorless += colorless
-    
-    avg_black = total_black / simulations
-    avg_colorless = total_colorless / simulations
-    
-    return avg_black, avg_colorless
-
 def simulate_game(total_lands, black_count, colorless_count, turns=10):
     # Initialize the number of lands in play
     lands_in_play = 0
@@ -58,12 +44,3 @@ def simulate_game(total_lands, black_count, colorless_count, turns=10):
                 deck.pop(7)
     
     return black_in_play, colorless_in_play
-    
-# Example usage
-total_lands = 42
-black_count = 20
-colorless_count = 22
-avg_black, avg_colorless = average_lands(total_lands, black_count, colorless_count)
-print(f"Average black lands in play: {avg_black}")
-print(f"Average colorless lands in play: {avg_colorless}")
-
